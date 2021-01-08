@@ -28,3 +28,4 @@ Answer the questions and the HTML file will be generated in the dist folder. See
 * JavaScript
 * Node.js
 * Inquirer.js
+* Jest
