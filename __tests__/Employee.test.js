@@ -1,4 +1,3 @@
-const { test } = require('@jest/globals');
 const Employee = require('../lib/Employee');
 // Solution has the employee id as a number and not string
 // Will this cause an issue later?
