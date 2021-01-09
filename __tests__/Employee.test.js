@@ -1,3 +1,4 @@
+const { test } = require('@jest/globals');
 const Employee = require('../lib/Employee');
 // Solution has the employee id as a number and not string
 // Will this cause an issue later?
@@ -26,4 +27,10 @@ test("gets employee's email", () => {
     const employee = new Employee('Josh', '123', 'josh@mail.com');
 
     expect(employee.getEmail()).toBe('josh@mail.com');
+});
+
+test("gets employee's role", () => {
+    const employee = new Employee('Josh', '123', 'josh@mail.com');
+
+    expect(employee.getRole()).toBe('Employee');
 });
