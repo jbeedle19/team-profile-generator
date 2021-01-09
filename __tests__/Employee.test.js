@@ -1,6 +1,6 @@
 const Employee = require('../lib/Employee');
 // Solution has the employee id as a number and not string
-// Will this cause and issue later?
+// Will this cause an issue later?
 
 test('creates an employee object', () => {
     const employee = new Employee('Josh', '123', 'josh@mail.com');
@@ -20,4 +20,10 @@ test("gets employee's id", () => {
     const employee = new Employee('Josh', '123', 'josh@mail.com');
 
     expect(employee.getId()).toBe('123');
+});
+
+test("gets employee's email", () => {
+    const employee = new Employee('Josh', '123', 'josh@mail.com');
+
+    expect(employee.getEmail()).toBe('josh@mail.com');
 });
