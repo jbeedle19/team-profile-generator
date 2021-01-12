@@ -53,13 +53,28 @@ const promptManagerInfo = () => {
                 if (managerIdInput) {
                     return true;
                 } else {
-                    console.log("Please enter the team manager's ID!");
+                    console.log("Please enter the team manager's office number!");
                 }
             }
         },
     ])
 }
 
+// STOPPED HERE, WORKING ON PROMPTING USER FOR TEAM INFO
+const promptTeamInfo = () => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'teamChoices',
+            message: 'Which type of team member would you like to add?',
+            choices: ['Engineer', 'Intern', 'None, I am finished building the team.']
+        }
+    ])
+    // Do .then to if/else statments depending on what choice they selected?
+    // each one ending with this being prompted again unless they choose 'none'
+}
+
+// Function to write HTML file
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
         fs.writeFile('./dist/index.html', fileContent, err => {
@@ -74,3 +89,20 @@ const writeFile = fileContent => {
         });
     });
 };
+
+// Function to initialize the application
+function init() {
+    console.log(`********************************************************
+Welcome! Please answer the questions to build your team!
+********************************************************`);
+    promptManagerInfo()
+    .then(data => {
+        console.log(data);
+        return data;
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
+
+init();
