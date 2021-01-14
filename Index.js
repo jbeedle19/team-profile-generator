@@ -63,12 +63,6 @@ const promptManagerInfo = () => {
                 }
             }
         },
-    ])
-}
-
-// STOPPED HERE, WORKING ON PROMPTING USER FOR TEAM INFO
-const promptTeamInfo = () => {
-    return inquirer.prompt([
         {
             type: 'list',
             name: 'teamChoices',
@@ -76,9 +70,6 @@ const promptTeamInfo = () => {
             choices: ['Engineer', 'Intern', 'None, I am finished building the team.']
         }
     ])
-    // Do .then to if/else statments depending on what choice they selected?
-    // each one ending with this being prompted again unless they choose 'none'
-    // push each new employee onto the employees array
 }
 
 // Function to write HTML file
@@ -91,7 +82,9 @@ const writeFile = fileContent => {
             }
             resolve({
                 ok: true,
-                message: 'HTML file created! Take a look at the new file in the dist folder!'
+                message: `******************************************************************
+HTML file created! Take a look at the new file in the dist folder!
+******************************************************************`
             });   
         });
     });
@@ -111,11 +104,13 @@ Welcome! Please answer the questions to build your team!
         const newManager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice)
         employeesArray.push(newManager);
         const myPage = generatePage(employeesArray);
-        console.log(myPage);
         return myPage;
     })
     .then(myPage => {
         return writeFile(myPage);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse.message);
     })
     .catch(err => {
         console.log(err);
