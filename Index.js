@@ -1,6 +1,12 @@
 // Include packages/methods/etc. needed for this app
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const generatePage = require('./src/page-template');
+
+const employeesArray = [];
 
 // Prompt user with questions about Manager
 const promptManagerInfo = () => {
@@ -72,6 +78,7 @@ const promptTeamInfo = () => {
     ])
     // Do .then to if/else statments depending on what choice they selected?
     // each one ending with this being prompted again unless they choose 'none'
+    // push each new employee onto the employees array
 }
 
 // Function to write HTML file
@@ -99,6 +106,16 @@ Welcome! Please answer the questions to build your team!
     .then(data => {
         console.log(data);
         return data;
+    })
+    .then(data => {
+        const newManager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice)
+        employeesArray.push(newManager);
+        const myPage = generatePage(employeesArray);
+        console.log(myPage);
+        return myPage;
+    })
+    .then(myPage => {
+        return writeFile(myPage);
     })
     .catch(err => {
         console.log(err);
