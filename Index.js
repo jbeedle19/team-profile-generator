@@ -55,22 +55,153 @@ const promptManagerInfo = () => {
             name: 'managerOffice',
             message: "What is the team manager's office number?",
             default: "A1",
-            validate: managerIdInput => {
-                if (managerIdInput) {
+            validate: managerOfficeInput => {
+                if (managerOfficeInput) {
                     return true;
                 } else {
                     console.log("Please enter the team manager's office number!");
                 }
             }
         },
-        {
-            type: 'list',
-            name: 'teamChoices',
-            message: 'Which type of team member would you like to add?',
-            choices: ['Engineer', 'Intern', 'None, I am finished building the team.']
-        }
     ])
+    .then(() => {
+        return promptTeamChoices();
+    })
 }
+
+//STOPPED HERE
+// Make three seperate functions for teamchoices, engineer info, and intern info
+// that way you can call teamchoices function at the end of engineer info and intern info to restart the questions
+const promptTeamChoices = () => {
+    return inquirer.prompt({
+        type: 'list',
+        name: 'teamChoices',
+        message: 'Which type of team member would you like to add?',
+        choices: ['Engineer', 'Intern', 'None, I am finished building the team.']
+    })
+    .then(({ teamChoices }) => {
+        if (teamChoices === "Engineer") {
+            return inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'engName',
+                    message: "What is your engineer's name?",
+                    default: "Joe",
+                    validate: engNameInput => {
+                        if (engNameInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your engineer's name!");
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'engId',
+                    message: "What is your engineer's ID?",
+                    default: "001",
+                    validate: engIdInput => {
+                        if (engIdInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your engineer's ID!");
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'engEmail',
+                    message: "What is your engineer's email?",
+                    default: "engineer@mail.com",
+                    validate: engEmailInput => {
+                        if (engEmailInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your engineer's email address!");
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'engGithub',
+                    message: "What is your engineer's GitHub username?",
+                    default: "engineerhub",
+                    validate: engGitInput => {
+                        if (engGitInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your engineer's GitHub!");
+                        }
+                    }
+                }
+            ])
+            .then(() => {
+                return promptTeamChoices();
+            });
+        } else if (teamChoices === "Intern") {
+            return inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'intName',
+                    message: "What is your intern's name?",
+                    default: "Jane",
+                    validate: intNameInput => {
+                        if (intNameInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your intern's name!");
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'intId',
+                    message: "What is your intern's ID?",
+                    default: "002",
+                    validate: intIdInput => {
+                        if (intIdInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your intern's ID!");
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'intEmail',
+                    message: "What is your intern's email?",
+                    default: "intern@mail.com",
+                    validate: intEmailInput => {
+                        if (intEmailInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your intern's email address!");
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'intSchool',
+                    message: "What school does your intern go to?",
+                    default: "UPenn",
+                    validate: intSchoolInput => {
+                        if (intSchoolInput) {
+                            return true;
+                        } else {
+                            console.log("Please enter your intern's school!");
+                        }
+                    }
+                }
+            ])
+            .then(() => {
+                return promptTeamChoices();
+            });
+        } else {
+            return;
+        }
+    });
+};
+
 
 // Function to write HTML file
 const writeFile = fileContent => {
