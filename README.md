@@ -12,7 +12,6 @@ After cloning the repo run
 ```JavaScript
 npm install
 ``` 
-
 ## Usage
 In the terminal, navigate to the directory and run
 ```JavaScript
@@ -23,7 +22,11 @@ Answer the questions and the HTML file will be generated in the dist folder. See
 ![walkthrough](./assets/team-profile-walkthrough.gif)
 
 [Video Link](https://drive.google.com/file/d/15nVhg3o0UukwvL3gn768R6Ej44Rc7J62/view)
-
+## Test
+run the following command to run the tests for the application
+```JavaScript
+npm test
+``` 
 ## Built With
 * JavaScript
 * Node.js
