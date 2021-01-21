@@ -1,0 +1,27 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "A command-line application that generates an HTML file for a team profile. The user answers questions and provides info for a manager, engineers and interns in order for the profile to be created.The profile will include a manager and as many engineers or interns as the user would like.",
+  "main": "Index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbeedle19/team-profile-generator.git"
+  },
+  "author": "Joshua Beedle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbeedle19/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/jbeedle19/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "jest": "^26.6.3"
+  }
+}
