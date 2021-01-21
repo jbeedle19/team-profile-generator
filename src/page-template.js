@@ -4,12 +4,12 @@ const renderTeamCard = employee => {
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h3 class="card-title">${employee.name}</h3>
-            <h4 class="card-title">${employee.getRole()}</h4>
+            <h4 class="card-title">${employee.getRole() === 'Manager' ? `<i class="fa fa-mug-hot mr-2"></i>${employee.getRole()}` : employee.getRole() === 'Engineer' ? `<i class="fa fa-glasses mr-2"></i>${employee.getRole()}` : `<i class="fa fa-user-graduate mr-2"></i>${employee.getRole()}`}</h4>
         </div>
         <div class="card-body bg-light">
-            <p class="card-text">ID: ${employee.id}</p>
-            <p class="card-text">Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
-            <p class="card-text">${employee.getRole() === 'Manager' ? `Office Number: ${employee.officeNumber}` : employee.getRole() === 'Engineer' ? `GitHub: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a>` : `School: ${employee.getSchool()}`}</p>
+            <p class="card-text"><b>ID:</b> ${employee.id}</p>
+            <p class="card-text"><b>Email:</b> <a href="mailto:${employee.email}">${employee.email}</a></p>
+            <p class="card-text">${employee.getRole() === 'Manager' ? `<b>Office Number:</b> ${employee.officeNumber}` : employee.getRole() === 'Engineer' ? `<b>GitHub:</b> <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a>` : `<b>School:</b> ${employee.getSchool()}`}</p>
         </div>
     </div>
     `
