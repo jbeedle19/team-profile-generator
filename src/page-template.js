@@ -1,15 +1,15 @@
 // write function that takes in an array and returns literal for Manager
 const renderTeamCard = employee => {
     return `
-    <div class="">
-        <div class="card-header">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
             <h3 class="card-title">${employee.name}</h3>
             <h4 class="card-title">${employee.getRole()}</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-light">
             <p class="card-text">ID: ${employee.id}</p>
             <p class="card-text">Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
-            <p class="card-text">${employee.getRole() === 'Manager' ? `Office Number: ${employee.officeNumber}` : employee.getRole() === 'Engineer' ? `GitHub: ${employee.getGithub()}` : `School: ${employee.getSchool()}`}</p>
+            <p class="card-text">${employee.getRole() === 'Manager' ? `Office Number: ${employee.officeNumber}` : employee.getRole() === 'Engineer' ? `GitHub: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a>` : `School: ${employee.getSchool()}`}</p>
         </div>
     </div>
     `
@@ -38,15 +38,11 @@ module.exports = employees => {
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    ${employees.map(employee => {
-                    return renderTeamCard(employee)
-                    })
-                    .join('')}
-                </div>
-            </div>
+        <div class="card-deck">
+            ${employees.map(employee => {
+            return renderTeamCard(employee)
+            })
+            .join('')}
         </div>    
     </body>
     </html>
