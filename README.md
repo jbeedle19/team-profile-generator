@@ -20,9 +20,9 @@ npm start
 ``` 
 Answer the questions and the HTML file will be generated in the dist folder. See gif and/or video link below for a walkthrough.
 
-![walkthrough](placeholder.gif)
+![walkthrough](./assets/team-profile-walkthrough.gif)
 
-[Video Link](placeholder-link)
+[Video Link](https://drive.google.com/file/d/15nVhg3o0UukwvL3gn768R6Ej44Rc7J62/view)
 
 ## Built With
 * JavaScript
