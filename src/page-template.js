@@ -1,7 +1,7 @@
 // write function that takes in an array and returns literal for Manager
 const renderTeamCard = employee => {
     return `
-    <div class="card">
+    <div class="card mb-3" style="min-width: 20rem;">
         <div class="card-header bg-dark text-white">
             <h3 class="card-title">${employee.name}</h3>
             <h4 class="card-title">${employee.getRole() === 'Manager' ? `<i class="fa fa-mug-hot mr-2"></i>${employee.getRole()}` : employee.getRole() === 'Engineer' ? `<i class="fa fa-glasses mr-2"></i>${employee.getRole()}` : `<i class="fa fa-user-graduate mr-2"></i>${employee.getRole()}`}</h4>
