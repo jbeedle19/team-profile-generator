@@ -64,16 +64,14 @@ const promptManagerInfo = () => {
             }
         },
     ])
-    .then(() => {
+  /*   .then(() => {
         return promptTeamChoices();
-    })
+    }) */
 }
 
-//STOPPED HERE
-// Make three seperate functions for teamchoices, engineer info, and intern info
-// that way you can call teamchoices function at the end of engineer info and intern info to restart the questions
+// Function to prompt for team info
 const promptTeamChoices = () => {
-    return inquirer.prompt({
+    inquirer.prompt({
         type: 'list',
         name: 'teamChoices',
         message: 'Which type of team member would you like to add?',
@@ -81,7 +79,7 @@ const promptTeamChoices = () => {
     })
     .then(({ teamChoices }) => {
         if (teamChoices === "Engineer") {
-            return inquirer.prompt([
+            inquirer.prompt([
                 {
                     type: 'input',
                     name: 'engName',
@@ -135,11 +133,13 @@ const promptTeamChoices = () => {
                     }
                 }
             ])
-            .then(() => {
-                return promptTeamChoices();
+            .then((data) => {
+                const newEngineer = new Engineer(data.engName, data.engId, data.engEmail, data.engGithub);
+                employeesArray.push(newEngineer);
+                promptTeamChoices();
             });
         } else if (teamChoices === "Intern") {
-            return inquirer.prompt([
+            inquirer.prompt([
                 {
                     type: 'input',
                     name: 'intName',
@@ -193,11 +193,23 @@ const promptTeamChoices = () => {
                     }
                 }
             ])
-            .then(() => {
-                return promptTeamChoices();
+            .then((data) => {
+                const newIntern = new Intern(data.intName, data.intId, data.intEmail, data.intSchool);
+                employeesArray.push(newIntern);
+                promptTeamChoices();
             });
         } else {
-            return;
+            console.log(employeesArray);
+            const myPage = generatePage(employeesArray);
+            writeFile(myPage)
+            .then(writeFileResponse => {
+                console.log(writeFileResponse.message);
+                return;
+            })
+            .catch(err => {
+                console.log(err);
+                return;
+            });
         }
     });
 };
@@ -228,24 +240,10 @@ Welcome! Please answer the questions to build your team!
 ********************************************************`);
     promptManagerInfo()
     .then(data => {
-        console.log(data);
-        return data;
-    })
-    .then(data => {
         const newManager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice)
         employeesArray.push(newManager);
-        const myPage = generatePage(employeesArray);
-        return myPage;
+        promptTeamChoices();
     })
-    .then(myPage => {
-        return writeFile(myPage);
-    })
-    .then(writeFileResponse => {
-        console.log(writeFileResponse.message);
-    })
-    .catch(err => {
-        console.log(err);
-    });
 }
 
 init();
