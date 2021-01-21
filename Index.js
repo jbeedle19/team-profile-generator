@@ -199,7 +199,7 @@ const promptTeamChoices = () => {
                 promptTeamChoices();
             });
         } else {
-            console.log(employeesArray);
+            //console.log(employeesArray);
             const myPage = generatePage(employeesArray);
             writeFile(myPage)
             .then(writeFileResponse => {
