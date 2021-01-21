@@ -15,7 +15,7 @@ const promptManagerInfo = () => {
             type: 'input',
             name: 'managerName',
             message: "What is the team manager's name?",
-            default: "Josh",
+            //default: "Josh",
             validate: managerNameInput => {
                 if (managerNameInput) {
                     return true;
@@ -28,7 +28,7 @@ const promptManagerInfo = () => {
             type: 'input',
             name: 'managerId',
             message: "What is the team manager's ID?",
-            default: "019",
+            //default: "019",
             validate: managerIdInput => {
                 if (managerIdInput) {
                     return true;
@@ -41,7 +41,7 @@ const promptManagerInfo = () => {
             type: 'input',
             name: 'managerEmail',
             message: "What is the team manager's email?",
-            default: "josh.beedle@gmail.com",
+            //default: "josh.beedle@gmail.com",
             validate: managerEmailInput => {
                 if (managerEmailInput) {
                     return true;
@@ -54,7 +54,7 @@ const promptManagerInfo = () => {
             type: 'input',
             name: 'managerOffice',
             message: "What is the team manager's office number?",
-            default: "A1",
+            //default: "A1",
             validate: managerOfficeInput => {
                 if (managerOfficeInput) {
                     return true;
@@ -84,7 +84,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'engName',
                     message: "What is your engineer's name?",
-                    default: "Joe",
+                    //default: "Joe",
                     validate: engNameInput => {
                         if (engNameInput) {
                             return true;
@@ -97,7 +97,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'engId',
                     message: "What is your engineer's ID?",
-                    default: "001",
+                    //default: "001",
                     validate: engIdInput => {
                         if (engIdInput) {
                             return true;
@@ -110,7 +110,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'engEmail',
                     message: "What is your engineer's email?",
-                    default: "engineer@mail.com",
+                    //default: "engineer@mail.com",
                     validate: engEmailInput => {
                         if (engEmailInput) {
                             return true;
@@ -123,7 +123,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'engGithub',
                     message: "What is your engineer's GitHub username?",
-                    default: "engineerhub",
+                    //default: "engineerhub",
                     validate: engGitInput => {
                         if (engGitInput) {
                             return true;
@@ -144,7 +144,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'intName',
                     message: "What is your intern's name?",
-                    default: "Jane",
+                    //default: "Jane",
                     validate: intNameInput => {
                         if (intNameInput) {
                             return true;
@@ -157,7 +157,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'intId',
                     message: "What is your intern's ID?",
-                    default: "002",
+                    //default: "002",
                     validate: intIdInput => {
                         if (intIdInput) {
                             return true;
@@ -170,7 +170,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'intEmail',
                     message: "What is your intern's email?",
-                    default: "intern@mail.com",
+                    //default: "intern@mail.com",
                     validate: intEmailInput => {
                         if (intEmailInput) {
                             return true;
@@ -183,7 +183,7 @@ const promptTeamChoices = () => {
                     type: 'input',
                     name: 'intSchool',
                     message: "What school does your intern go to?",
-                    default: "UPenn",
+                    //default: "UPenn",
                     validate: intSchoolInput => {
                         if (intSchoolInput) {
                             return true;
