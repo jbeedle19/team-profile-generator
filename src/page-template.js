@@ -9,7 +9,7 @@ const renderTeamCard = employee => {
         <div class="card-body bg-light">
             <p class="card-text"><b>ID:</b> ${employee.id}</p>
             <p class="card-text"><b>Email:</b> <a href="mailto:${employee.email}">${employee.email}</a></p>
-            <p class="card-text">${employee.getRole() === 'Manager' ? `<b>Office Number:</b> ${employee.officeNumber}` : employee.getRole() === 'Engineer' ? `<b>GitHub:</b> <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a>` : `<b>School:</b> ${employee.getSchool()}`}</p>
+            <p class="card-text">${employee.getRole() === 'Manager' ? `<b>Office Number:</b> ${employee.officeNumber}` : employee.getRole() === 'Engineer' ? `<b>GitHub:</b> <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a>` : `<b>School:</b> ${employee.getSchool()}`}</p>
         </div>
     </div>
     `
